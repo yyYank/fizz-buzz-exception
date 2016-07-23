@@ -6,6 +6,9 @@ import org.junit.rules.TestName;
 import java.math.BigDecimal;
 import java.util.stream.IntStream;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 public class FizzBuzz {
 
 
@@ -40,6 +43,46 @@ public class FizzBuzz {
                 System.out.println(i);
             }
     }
+
+    @Test(expected = FizzException.class)
+    public void fizzBuzz_fizz() {
+        FizzBuzzPitcher.overThrow(3);
+    }
+
+    @Test(expected = BuzzException.class)
+    public void fizzBuzz_buzz() {
+        FizzBuzzPitcher.overThrow(5);
+    }
+
+    @Test(expected = FizzBuzzException.class)
+    public void fizzBuzz_fizzbuzz() {
+        FizzBuzzPitcher.overThrow(15);
+    }
+
+    @Test(expected = SonomamaException.class)
+    public void fizzBuzz_sonomama() {
+        FizzBuzzPitcher.overThrow(16);
+    }
+
+    @Test
+    public void make_fizz() {
+        assertThat(make(3), is("fizz"));
+    }
+
+    @Test
+    public void make_buzz() {
+        assertThat(make(5), is("buzz"));
+    }
+
+    @Test
+    public void make_fizzbuzz() {
+        assertThat(make(15), is("fizzbuzz"));
+    }
+    @Test
+    public void make_sonomama() {
+        assertThat(make(16), is("16"));
+    }
+
 
     @Test
     public void fizzBuzz2() throws Exception {
