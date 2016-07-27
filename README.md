@@ -1,6 +1,7 @@
 # fizz-buzz-exception
 
-最強のfizzbuzzのソースです
+最強のfizzbuzzのソースです。  
+fizzbuzzをJavaの例外機構を使って表現しました。
 
 ## これはなに？
 
